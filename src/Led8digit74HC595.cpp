@@ -1,13 +1,13 @@
 /*
-  Led4digit74HC595.cpp - Library
+  Led8digit74HC595.cpp - Library
 */
  
-#include "Led4digit74HC595.h"
+#include "Led8digit74HC595.h"
 
 
 unsigned char _LED_CHAR[14];
    
-Led4digit74HC595::Led4digit74HC595(int SCLK, int RCLK, int DIO)
+Led8digit74HC595::Led8digit74HC595(int SCLK, int RCLK, int DIO)
 {
 	pinMode(SCLK, OUTPUT);
 	pinMode(RCLK, OUTPUT);
@@ -45,7 +45,7 @@ Led4digit74HC595::Led4digit74HC595(int SCLK, int RCLK, int DIO)
 
 
 // Set number to be show in next step
-void Led4digit74HC595::setNumber(int _n)
+void Led8digit74HC595::setNumber(int _n)
 {
 	if(_n > 9999) {
 		for(char c = 0 ; c < 4; c++) {
@@ -104,7 +104,7 @@ void Led4digit74HC595::setNumber(int _n)
 
 
 // Periodic call action in main loop of program
-void Led4digit74HC595::loopShow()
+void Led8digit74HC595::loopShow()
 {
 
 	byte port = B0001 << _showPos; 	
@@ -123,7 +123,7 @@ void Led4digit74HC595::loopShow()
 }
 
 
-void Led4digit74HC595::writeByte(unsigned char X)
+void Led8digit74HC595::writeByte(unsigned char X)
 {
   for (char i = 0; i < 8; i++)
   {
@@ -141,7 +141,7 @@ void Led4digit74HC595::writeByte(unsigned char X)
 
 
 // Position of decimal point (1 - 4) or disable (0)
-void Led4digit74HC595::setDecimalPoint(unsigned char position)
+void Led8digit74HC595::setDecimalPoint(unsigned char position)
 {
 	if(position > 4) position = 4;
 	_dp = position;
@@ -156,7 +156,7 @@ void Led4digit74HC595::setDecimalPoint(unsigned char position)
 
 
 // All characters temporary off when program processing another long time function in multiplexing display characters
-void Led4digit74HC595::sleep()
+void Led8digit74HC595::sleep()
 {
 	char c;
 	
@@ -234,7 +234,7 @@ void Led4digit74HC595::sleep()
 
 
 /* Test function for basic education 
-void Led4digit74HC595::test()
+void Led8digit74HC595::test()
 {
 	// first byte (bit 1 - 8) = active segments when LOW
 	// second byte (bit 9 -16) = active position when HIGH

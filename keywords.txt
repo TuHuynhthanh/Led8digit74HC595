@@ -1,4 +1,4 @@
-Led4digit74HC595	KEYWORD1
+Led8digit74HC595	KEYWORD1
 
 setNumber	KEYWORD2
 

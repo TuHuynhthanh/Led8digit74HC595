@@ -1,5 +1,5 @@
 /*
-  Led4digit74HC595.h - Library for use 7-segment led * 4 digits display with 2 74HC595 in multiplexing mode
+  Led8digit74HC595.h - Library for use 7-segment led * 4 digits display with 2 74HC595 in multiplexing mode
   For china (ebay) arduino module 
   Created by Lubomir Hron, 3.11.2016
   Based on Kostarev V. - TM74HC595-4dig-display project	- thanks
@@ -32,14 +32,14 @@ LOW bit = active lighting led segment
 
 */
 
-#ifndef Led4digit74HC595_h
-#define Led4digit74HC595_h
+#ifndef Led8digit74HC595_h
+#define Led8digit74HC595_h
 #include <Arduino.h>
   
-class Led4digit74HC595
+class Led8digit74HC595
 {
 	public:
-		Led4digit74HC595(int SCLK, int RCLK, int DIO);
+		Led8digit74HC595(int SCLK, int RCLK, int DIO);
 		void setNumber(int n);								//main function = number to be show on display in periodical call show() [from -999 to +9999]
 		void loopShow();									//periodic call action in main loop of program and show muptiplexing number
 		void setDecimalPoint(unsigned char position);		//set decimal poit disable (0) or enable on position (1-4)
